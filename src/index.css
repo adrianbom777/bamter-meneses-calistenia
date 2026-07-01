@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --color-bg: #0a0a0a;
+  --color-surface: #111113;
+  --color-surface-2: #18181b;
+  --color-accent: #d4ff00;
+  --color-accent-hover: #bde600;
+  --color-text: #fafafa;
+  --color-muted: #71717a;
+  --color-border: rgba(212, 255, 0, 0.1);
+}
+
+:root {
+  --accent: #d4ff00;
+  --accent-hover: #bde600;
+  --accent-dim: rgba(212, 255, 0, 0.12);
+  --accent-glow: rgba(212, 255, 0, 0.18);
+  --bg: #0a0a0a;
+  --surface: #111113;
+  --surface-2: #18181b;
+  --border: rgba(212, 255, 0, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --text: #fafafa;
+  --muted: #71717a;
+  --radius: 4px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Ambient floating bars — CSS only, no JS cost */
+@keyframes bar-rise {
+  0%   { transform: translateY(0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Cursor marker fade */
+@keyframes marker-fade {
+  0%   { opacity: 0.9; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
